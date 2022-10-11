@@ -8,6 +8,7 @@ namespace ATM
 
         public List<Account> Accounts { get; set; }
 
+        // Constructor
         public ATM(List<Account> accounts)
         {
             this.Accounts = accounts;
@@ -16,13 +17,13 @@ namespace ATM
         bool isUserLoggedIn = false;
         Account currentUser;
 
-        //Add account
+        // Add account
         public void Register(string name, string password, int balance)
         {
             Accounts.Add(new Account(name, password, balance));
         }
 
-        //Logging into account.
+        // Logging into account.
         public void Login(string name, string password)
         {
             if (isUserLoggedIn == false)
@@ -36,9 +37,9 @@ namespace ATM
             Console.WriteLine($"Hello, {currentUser.GetName()}");
         }
 
+        // Logout if a user is logged in
         public void Logout()
         {
-
             if (isUserLoggedIn == true)
             {
                 isUserLoggedIn = false;
@@ -47,6 +48,7 @@ namespace ATM
             }
         }
 
+        // Check balance if user is logged in
         public void CheckBalance()
         {
             if (isUserLoggedIn == true)
@@ -55,6 +57,7 @@ namespace ATM
             }
         }
 
+        // Deposit if user is logged in
         public void Deposit()
         {
 
@@ -71,6 +74,7 @@ namespace ATM
 
         }
 
+        // Withdraw if user is logged in
         public void Withdraw()
         {
             int updateBalance;
@@ -97,6 +101,3 @@ namespace ATM
         }
     }
 }
-
-
-
